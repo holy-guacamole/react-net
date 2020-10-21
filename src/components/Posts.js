@@ -64,6 +64,7 @@ export class Posts extends React.Component {
 const mapStateToProps = store => {
     return {
         post: store.post,
+        
     }
 }
 

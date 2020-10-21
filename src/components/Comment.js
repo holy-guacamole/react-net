@@ -18,7 +18,7 @@ export class Comment extends Component {
             add: false,
             message: '',
             messageAdd: ''
-        }
+        } 
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSave = this.handleSave.bind(this)

@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/List.css'
 import { store } from '../createStore/createStore'
 import { connect } from 'react-redux'
-import Comment from './Comment'
+// import Comment from './Comment'
 
 export class List extends React.Component {
     constructor(props) {

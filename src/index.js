@@ -64,9 +64,9 @@ ReactDOM.render(
             <PrivateRoute path='/posts/:id' component={ Post } /> 
             <PrivateRoute path='/comments/:id' component={ Comment } />
             <PrivateRoute path='/user' component={ ProfilePage } />
-          </Route>            
+          </Route>
         </Switch>
-      </BrowserRouter>  
+      </BrowserRouter>
     </Provider>,
   document.getElementById('root')
 )

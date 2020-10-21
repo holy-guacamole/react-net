@@ -21,7 +21,7 @@ function* loginUser(action) {
 }
 
 function* registerUser(action) {
-    let response = yield fetch('https://postify-api.herokuapp.com/auth',
+    let response = yield fetch("https://postify-api.herokuapp.com/auth",
         {
             method: "POST",
             body: JSON.stringify(action.body),
@@ -33,6 +33,7 @@ function* registerUser(action) {
     let access_token = response.headers.get('access-token')
     let client_token = response.headers.get('client')
     let uid_token = response.headers.get('uid')
+    
     localStorage.setItem("access-token", access_token)
     localStorage.setItem("client", client_token)
     localStorage.setItem("uid", uid_token)
@@ -40,8 +41,8 @@ function* registerUser(action) {
     yield put({type: 'SET_REDIRECT', payload: {redirect: true}})
 }
 
-function* profileUser() {
-    let response = yield fetch('https://postify-api.herokuapp.com/users/me',
+function* profileUser(action) {
+    let response = yield fetch("https://postify-api.herokuapp.com/users/me",
         {
             method: "GET",
             headers: {
@@ -50,13 +51,14 @@ function* profileUser() {
                 'uid': localStorage.getItem("uid")
             }
         })
+    console.log("undefined", response.headers)
     let access_token = response.headers.get('access-token')
     let client_token = response.headers.get('client')
     let uid_token = response.headers.get('uid')
     localStorage.setItem("access-token", access_token)
     localStorage.setItem("client", client_token)
     localStorage.setItem("uid", uid_token)
-    let data = yield response.json()
+    let data = yield response.json().then(function(data) { return data})
     yield put({type: 'PROFILE_USER', payload: data.data})
 }
 

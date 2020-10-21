@@ -43,6 +43,7 @@ export class Post extends Component {
             description: this.props.post.description,
         })   
     }
+    
 
     handleReduct() {
         this.setState({
