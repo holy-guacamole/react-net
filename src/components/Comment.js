@@ -222,7 +222,7 @@ export class Comment extends Component {
                                                 variant="contained" 
                                                 color="primary" 
                                                 onClick={this.handleSaveNew} >
-                                                    save comment
+                                                    save
                                             </Button>
                                             <Button 
                                                 variant="contained" 
