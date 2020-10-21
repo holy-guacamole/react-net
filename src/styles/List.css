@@ -1,0 +1,15 @@
+.comments-list {
+    margin: 0;
+    padding: 0;
+}
+
+.comment-template {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    padding: 0;
+}

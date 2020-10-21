@@ -1,0 +1,37 @@
+.comment-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.post-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+h2 {
+    text-align: center;
+}
+
+.comment-template {
+    display: flex;
+    flex-direction: inherit;
+}
+
+.comment-edit-icons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+p {
+    margin: 0;
+}
+
+.add-comment {
+    margin-top: 10px;
+}
+
+.comment-add-icon {
+    margin-top: 15px;
+}

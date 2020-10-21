@@ -1,0 +1,38 @@
+.header{
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;    
+    top: 0;
+    opacity: 1;
+    background: #fff;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #e4e4e4;
+}
+
+.container{
+    max-width: 60rem;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+.header-container{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header-container li:first-of-type {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.header-container li a {
+    display: block;
+    padding: 1rem;
+    color: inherit;
+    white-space: nowrap;
+}
+
+.header-container li a:hover {
+    background-color: rgb(241, 245, 255);
+}
