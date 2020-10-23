@@ -1,7 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects'
 
 function* showPost(action) {
-    let response = yield fetch("https://postify-api.herokuapp.com/posts/${action.body}", 
+    let response = yield fetch(`https://postify-api.herokuapp.com/posts/${action.body}`, 
         { 
             method: "GET",
             headers: {
