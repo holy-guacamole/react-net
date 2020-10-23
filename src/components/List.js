@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/List.css'
 import { store } from '../createStore/createStore'
 import { connect } from 'react-redux'
-import Comment from './Comment'
+
 export class List extends React.Component {
     constructor(props) {
         super(props)
@@ -58,15 +58,13 @@ export class List extends React.Component {
     render() {
         let loading = false
         const data = this.props.comment && this.props.comment.data.length > 1 && this.props.comment.data
-        console.log(data)
         if (loading) {
             return <div className="posts-container"><h2>loading...</h2></div>
         }
-        let post_data = this.props.post
-        let flt_ids = []
+
         return (
             <div>
-                dqwndqiwndinqwoib
+
                 <div className="comment-template">
                         <ul className="comments-list">
                             {data && data.map((item) => (

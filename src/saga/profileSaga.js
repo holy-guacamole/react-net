@@ -16,7 +16,6 @@ function* loginUser(action) {
     localStorage.setItem("access-token", access_token)
     localStorage.setItem("client", client_token)
     localStorage.setItem("uid", uid_token)
-    let data = yield response.json()
     yield put({type: 'SET_REDIRECT', payload: {redirect: true}})
 }
 
@@ -37,7 +36,6 @@ function* registerUser(action) {
     localStorage.setItem("access-token", access_token)
     localStorage.setItem("client", client_token)
     localStorage.setItem("uid", uid_token)
-    let data = yield response.json()
     yield put({type: 'SET_REDIRECT', payload: {redirect: true}})
 }
 
@@ -51,7 +49,6 @@ function* profileUser(action) {
                 'uid': localStorage.getItem("uid")
             }
         })
-    console.log("undefined", response.headers)
     let access_token = response.headers.get('access-token')
     let client_token = response.headers.get('client')
     let uid_token = response.headers.get('uid')

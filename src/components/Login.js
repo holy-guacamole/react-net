@@ -29,19 +29,19 @@ export class Login extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        if (this.state.email == '') {
+        if (this.state.email === '') {
             this.setState({
                 email_error: true
             })
         }
 
-        if (this.state.password == '') {
+        if (this.state.password === '') {
             this.setState({
                 password_error: true
             })
         }
 
-    if (!(this.state.email == '') && !(this.state.password == '')) {
+    if (!(this.state.email === '') && !(this.state.password === '')) {
         store.dispatch({type: 'FETCH_LOGIN_USER', body: this.state})
         }  else {
         alert('complete all fields!')

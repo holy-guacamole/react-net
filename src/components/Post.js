@@ -3,7 +3,6 @@ import "../styles/Post.css"
 import List from './List'
 import Button from '@material-ui/core/Button'
 import {connect} from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField'
 import { Card, CardActionArea, CardContent } from '@material-ui/core';
 import { store } from '../createStore/createStore'
@@ -37,14 +36,12 @@ export class Post extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id || ''
-        console.log("id", id)
         store.dispatch({type: 'FETCH_POST', body: id})
         
         this.setState({
             title: this.props.post.title,
             description: this.props.post.description,
         })
-        console.log("title", this.props)
     }
     
 
@@ -127,7 +124,6 @@ export class Post extends Component {
         const { message } = this.state
 
         const { post_loading } = this.props.one_post
-        console.log('post_loading ', post_loading )
         if (post_loading) {
             return <div className=""><h2>posts</h2></div>
         }
