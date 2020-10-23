@@ -37,11 +37,14 @@ export class Post extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id || ''
+        console.log("id", id)
         store.dispatch({type: 'FETCH_POST', body: id})
+        
         this.setState({
             title: this.props.post.title,
             description: this.props.post.description,
-        })   
+        })
+        console.log("title", this.props)
     }
     
 
@@ -49,7 +52,7 @@ export class Post extends Component {
         this.setState({
             reduct: true,
             isVisible: false
-        })   
+        })
     }
 
     handleCancel(e) {
@@ -72,7 +75,6 @@ export class Post extends Component {
             [name]: value
         })
     }
-
     handleSave() {
         const id = this.props.match.params.id || ''
         const { title, description } = this.state
