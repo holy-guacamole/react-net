@@ -69,7 +69,7 @@ export class Login extends Component {
                         onChange ={this.handleChange} 
                         value ={email}  
                         onSubmit = {this.handleSubmit} 
-                        required = {true}
+                        // required = {true}
                     />
                     <TextField 
                         error={ this.state.password_error ? true: false}
@@ -80,7 +80,7 @@ export class Login extends Component {
                         onChange ={this.handleChange} 
                         value ={password}  
                         onSubmit = {this.handleSubmit} 
-                        required = {true}
+                        // required = {true}
                     />
                     <br/>
                     <Button 

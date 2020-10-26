@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "../styles/Post.css"
 import List from './List'
+import Comment from './Comment'
 import Button from '@material-ui/core/Button'
 import {connect} from 'react-redux'
 import TextField from '@material-ui/core/TextField'

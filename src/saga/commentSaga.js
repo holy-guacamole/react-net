@@ -38,7 +38,7 @@ function* addComment(action) {
             'uid': localStorage.getItem("uid")
         })
     })
-    let data = yield response.json()
+    yield response.json()
     yield put({type: 'FETCH_SHOW_COMMENTS'})
 }
 
@@ -53,7 +53,7 @@ function* saveComment(action) {
             'uid': localStorage.getItem("uid")
         })
     })
-    let comment = yield response.json()
+    yield response.json()
     yield put({type: 'FETCH_SHOW_COMMENTS'})
 }
 
@@ -67,7 +67,7 @@ function* deleteComment(action) {
             'uid': localStorage.getItem("uid")
         })
     })
-    let data = yield response
+    yield response
     yield put({type: 'FETCH_SHOW_COMMENTS'})
 }
 
