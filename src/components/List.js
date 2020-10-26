@@ -3,6 +3,7 @@ import '../styles/List.css'
 import { store } from '../createStore/createStore'
 import { connect } from 'react-redux'
 import Comment from './Comment'
+
 export class List extends React.Component {
     constructor(props) {
         super(props)
@@ -55,25 +56,87 @@ export class List extends React.Component {
         const id = this.props.match.params.id || ''
         store.dispatch({type: 'FETCH_DELETE_COMMENT', body: id})
     }
-    render() {
-        let loading = false
-        const data = this.props.comment && this.props.comment.data.length > 1 && this.props.comment.data
-        console.log(data)
+    render() { 
+        const { data, loading } = this.props.comment
+        const postId = this.props.post.id;
+        const postComments = data && data.filter(comment => comment.commentable_id === postId)
+        
+        // commentable_id
         if (loading) {
             return <div className="posts-container"><h2>loading...</h2></div>
         }
         let post_data = this.props.post
         let flt_ids = []
+        let filtered_data = data.filter(function(el) {
+            if (el.commentable_type==="Post" && el.commentable_id===post_data.id) {
+                flt_ids.push(el.id) 
+                return true
+            }
+            else
+                return false
+        })
+
+        if (filtered_data.length !== 0) {
+
+            function recurseFilter(filterAr){
+                let flt_id = []
+                let flt_cmt_data = data.filter(function(el) {
+                    if (el.commentable_type==="Comment" && filterAr.includes(el.commentable_id)) {
+                        flt_id.push(el.id) 
+                        return true
+                    }
+                    else
+                        return false                    
+                })
+
+                if (flt_cmt_data.length !==0 ){
+                    flt_cmt_data = flt_cmt_data.concat(recurseFilter(flt_id))
+                }
+
+                return flt_cmt_data
+            }
+
+            filtered_data = filtered_data.concat(recurseFilter(flt_ids))
+
+            filtered_data.sort(function(a, b){return (b.created_at > a.created_at)?-1:1})
+
+        }
+
+        function subComment(filterID, n){
+            let flt_cmt_data = filtered_data.filter(function(el) {
+                return (el.commentable_type==="Comment" && el.commentable_id===filterID)                
+            })
+            let overall = []
+
+            for (let elem in flt_cmt_data){
+                let el = flt_cmt_data[elem]
+                let a = (<li key={el.id}>
+                            <List 
+                                id={el.id}
+                                message={el.message}
+                                created_at={el.created_at}
+                                commentable_id={el.commentable_id}
+                                author_id={el.user_id}
+                                recurs_num={n}
+                                />
+                        </li>)
+                let b = [a]
+                b = b.concat(subComment(el.id,n+1))       
+                overall.push(b)
+            }
+            return overall
+
+        }
+        const commentsList = data.filter(function(el) {
+            return (el.commentable_type==="Post" && el.commentable_id===post_data.id)
+        })
         return (
             <div>
-                dqwndqiwndinqwoib
+                <h2>comments: {filtered_data.length}</h2>
                 <div className="comment-template">
                         <ul className="comments-list">
-                            {data && data.map((item) => (
-                                <li key={item.id}
-                                        id={item.id}>
-                                        {item.message}
-                                </li>
+                            {postComments && postComments.map((item) => (
+                                <Comment key={item.id} message={item.message} id={item.id} created_at={item.created_at}/>
                             )
                         ) }
                     </ul>

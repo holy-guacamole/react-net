@@ -50,12 +50,12 @@ function* addPost(action) {
             'uid': localStorage.getItem("uid")
         })
     })
-    let data = yield response.json()
+    yield response.json()
     yield put({type: 'FETCH_POST_LIST'})
 }
 
 function* deletePost(action) {
-    let response = yield fetch(`https://postify-api.herokuapp.com/posts/${action.body}`,
+    yield fetch(`https://postify-api.herokuapp.com/posts/${action.body}`,
     {
         method: "DELETE",
         headers: new Headers({

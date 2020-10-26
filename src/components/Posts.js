@@ -17,7 +17,6 @@ export class Posts extends React.Component {
 
     componentDidMount() {
         store.dispatch({type: 'FETCH_POST_LIST'})
-        // console.log('id', this.props.post.post.id)
     }
     
     render() { 

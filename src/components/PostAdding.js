@@ -75,7 +75,7 @@ export class PostAdding extends Component {
                                         variant="outlined"
                                         onChange ={this.handleChange} 
                                         value ={description}
-                                        multiline = {true}
+                                        // multiline = {true}
                                     />
                                 </FormControl>
                                 <div className="submit-buttons">

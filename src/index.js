@@ -57,7 +57,7 @@ ReactDOM.render(
         <Switch>
           <Route path='/' component={ App }>
             <Header />
-            <PublicRoute path='/' component={ Login } exact /> 
+            <PublicRoute component={ <Redirect component={"/"} /> } exact /> 
             <PublicRoute path='/signup' component={ SignUp } exact/> 
             <PublicRoute path='/login' component={ Login } exact /> 
             <PrivateRoute path='/posts' component={ Posts } exact />

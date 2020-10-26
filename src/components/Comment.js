@@ -92,7 +92,6 @@ export class Comment extends Component {
         for (let i=1; i <= this.props.recurs_num; i++){
             prelimiter.push(<SubdirectoryArrowRightIcon />) 
         }
-
         return (
             <div className="comment-template">
                 {prelimiter}

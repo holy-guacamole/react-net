@@ -35,25 +35,25 @@ export class SignUp extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        if (this.state.email == '') {
+        if (this.state.email === '') {
             this.setState({
                 email_error: true
             })
         } 
 
-        if (this.state.password == '') {
+        if (this.state.password === '') {
             this.setState({
                 password_error: true
             })
         }
 
-        if (this.state.passwrod_confirmation == '') {
+        if (this.state.passwrod_confirmation === '') {
             this.setState({
                 passwrod_confirmation_error: true
             })
         }
 
-        if (!(this.state.email == '') && !(this.state.password == '') && !(this.state.passwrod_confirmation== '')) {
+        if (!(this.state.email === '') && !(this.state.password === '') && !(this.state.passwrod_confirmation === '')) {
             if (this.state.password===this.state.passwrod_confirmation) {
                 store.dispatch({type: 'FETCH_REGISTER_USER', body: this.state})
             } else {
