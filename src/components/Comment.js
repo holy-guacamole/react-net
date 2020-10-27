@@ -205,7 +205,7 @@ export class Comment extends Component {
                                         <br/> 
                                         <p>Created at: {this.props.created_at}</p>
                                     </div>
-                                    <div className="add-comment">
+                                    {/* <div className="add-comment">
                                         <TextField
                                             label="message"
                                             name="messageAdd"
@@ -215,8 +215,8 @@ export class Comment extends Component {
                                             onChange ={this.handleChange}
                                             defaultValue = ''
                                             required
-                                        />
-                                        <div className = "post-buttons">
+                                        /> */}
+                                        {/* <div className = "post-buttons">
                                             <Button 
                                                 variant="contained" 
                                                 color="primary" 
@@ -229,8 +229,8 @@ export class Comment extends Component {
                                                 onClick={this.handleCancel} >
                                                     cancel
                                             </Button>
-                                        </div>
-                                </div>
+                                        </div> */}
+                                {/* </div> */}
                                 </CardContent>
                             </CardActionArea>
                         </Card>)
